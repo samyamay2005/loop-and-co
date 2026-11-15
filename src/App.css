@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap");
+
+/* 🎨 Brand colors — change them once, they update everywhere */
+:root {
+  --ink: #101114;        /* page background (matches the logo) */
+  --ink-soft: #17181c;   /* slightly lighter, for the footer */
+  --bronze: #b9a287;     /* logo metal */
+  --bronze-dim: #7d6f5f; /* lines and small text */
+  --paper: #e9e2d8;      /* body text */
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: "Jost", system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+a { color: var(--bronze); }
+a:focus-visible { outline: 2px solid var(--bronze); outline-offset: 4px; }
+
+/* ---------- Hero (the logo) ---------- */
+.hero {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem 0;
+}
+.hero-logo {
+  width: min(100%, 520px);
+  height: auto;
+  /* fades the image edges into the page so no box is visible */
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 50%, transparent 72%);
+          mask-image: radial-gradient(ellipse at center, #000 50%, transparent 72%);
+}
+
+/* ---------- Sections ---------- */
+main { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
+
+.section {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem 4rem;
+  padding: 4rem 0;
+  border-top: 1px solid var(--bronze-dim);
+}
+.section h2 {
+  font-weight: 400;
+  font-size: 1.5rem;
+  letter-spacing: 0.02em;
+  color: var(--bronze);
+}
+.section-body { max-width: 62ch; }
+.section-body p + p { margin-top: 1.25rem; }
+
+/* ---------- Join ---------- */
+.join-text { font-size: 1.5rem; line-height: 1.4; }
+.contact { list-style: none; margin-top: 1.75rem; }
+.contact li + li { margin-top: 0.5rem; }
+
+/* ---------- Footer ---------- */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 2rem 1.5rem;
+  background: var(--ink-soft);
+  color: var(--bronze-dim);
+  font-size: 0.9rem;
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 700px) {
+  body { font-size: 1rem; }
+
+  .hero { padding-top: 0; }
+  .hero-logo {
+    width: 130%;              /* slightly wider than the screen so the logo text fills it */
+    max-width: none;
+    margin: -12% 0 -14%;      /* trims the empty space above and below */
+  }
+  .hero { overflow: hidden; } /* hides the overflow from the 130% width */
+
+  .section { grid-template-columns: 1fr; padding: 2.5rem 0; }
+  .join-text { font-size: 1.25rem; }
+}
