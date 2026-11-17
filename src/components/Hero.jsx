@@ -1,4 +1,4 @@
-import logo from "../assets/logo.png";
+import logo from "../assets/Logo.png";
 import { brand } from "../content";
 
 export default function Hero() {
