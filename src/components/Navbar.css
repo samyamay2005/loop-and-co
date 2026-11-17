@@ -1,0 +1,85 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(16, 17, 20, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--bronze-dim);
+}
+.nav-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  color: var(--bronze);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.25rem;
+  letter-spacing: 0.02em;
+}
+
+/* ---------- Desktop links ---------- */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--paper);
+  text-decoration: none;
+  font-size: 1rem;
+}
+.nav-links a:hover { color: var(--bronze); }
+
+/* hamburger button is hidden on desktop */
+.nav-toggle { display: none; }
+
+/* ---------- Phone: hamburger + dropdown ---------- */
+@media (max-width: 700px) {
+  .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 0 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  .nav-toggle:focus-visible { outline: 2px solid var(--bronze); }
+  .nav-toggle span {
+    display: block;
+    height: 2px;
+    background: var(--bronze);
+    transition: transform 0.2s, opacity 0.2s;
+  }
+  /* turns the three lines into an X when open */
+  .nav-toggle.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.is-open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: var(--ink);
+    border-bottom: 1px solid var(--bronze-dim);
+  }
+  .nav-links.is-open { display: flex; }
+  .nav-links a {
+    display: block;
+    padding: 1rem 1.5rem;
+    font-size: 1.125rem;
+  }
+}

@@ -32,7 +32,7 @@ a:focus-visible { outline: 2px solid var(--bronze); outline-offset: 4px; }
   padding: 2rem 1rem 0;
 }
 .hero-logo {
-  width: min(100%, 520px);
+  width: min(100%, 380px);
   height: auto;
   /* fades the image edges into the page so no box is visible */
   -webkit-mask-image: radial-gradient(ellipse at center, #000 50%, transparent 72%);
@@ -43,6 +43,7 @@ a:focus-visible { outline: 2px solid var(--bronze); outline-offset: 4px; }
 main { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
 
 .section {
+  scroll-margin-top: 64px;
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 2rem 4rem;
@@ -81,7 +82,7 @@ main { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
 
   .hero { padding-top: 0; }
   .hero-logo {
-    width: 130%;              /* slightly wider than the screen so the logo text fills it */
+    width: 100%;              /* slightly wider than the screen so the logo text fills it */
     max-width: none;
     margin: -12% 0 -14%;      /* trims the empty space above and below */
   }
